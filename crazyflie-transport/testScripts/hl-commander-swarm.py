@@ -105,22 +105,27 @@ def run_shared_sequence(scf):
     activate_mellinger_controller(scf, False)
 
     box_size = 1
-    flight_time = 2
+    flight_time = 4
 
     commander = scf.cf.high_level_commander
 
-    commander.takeoff(1.0, 2.0)
+    commander.takeoff(1.3, 2.0)
     time.sleep(3)
-    for i in range(4): 
+
+    commander.go_to(0, 0.5, 0, 0, flight_time, relative=True)
+    time.sleep(flight_time)
+    commander.go_to(0, -0.5, 0, 0, flight_time, relative=True)
+    time.sleep(flight_time)
+    #for i in range(4): 
     
-        commander.go_to(box_size, 0, 0, 0, flight_time, relative=True)
-        time.sleep(flight_time)
+        #commander.go_to(box_size, 0, 0, 0, flight_time, relative=True)
+        #time.sleep(flight_time)
 
         #commander.go_to(0, box_size, 0, 0, flight_time, relative=True)
         #time.sleep(flight_time)
 
-        commander.go_to(-box_size, 0, 0, 0, flight_time, relative=True)
-        time.sleep(flight_time)
+        #commander.go_to(-box_size, 0, 0, 0, flight_time, relative=True)
+        #time.sleep(flight_time)
 
         #commander.go_to(box_size, 0, 0, 0, flight_time, relative=True)
         #time.sleep(flight_time)
